@@ -16,6 +16,9 @@
 2. **Atomic Linking:** Use `[[Double Brackets]]` to link new notes to existing ones.
 3. **Naming Convention:** Use `Kebab-Case-Naming.md` for all files.
 4. **Template Adherence:** Always read `/docs/00_Meta/` templates before writing.
-   - Use `Template_ADR.md` for decisions.
-   - Use `Template_Domain.md` for data structures.
+   - For architecture decisions, use `Template_ADR.md`.
+   - For new backend routes, use `Template_API.md`.
+   - For data structures, use `Template_Domain.md`.
+   - For new features, use `Template_Feature.md`.
+   Fill in all placeholders (e.g., {{date}}, {{method}}) and maintain the YAML structure exactly.
 5. **The Preview Rule:** Always wrap Markdown previews in four backticks (````markdown) in chat.

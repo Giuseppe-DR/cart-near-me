@@ -1,0 +1,43 @@
+CREATE TABLE cartItem (
+    id TEXT NOT NULL PRIMARY KEY,
+    name TEXT NOT NULL,
+    category TEXT NOT NULL,
+    quantity TEXT,
+    isCompleted INTEGER AS Boolean NOT NULL DEFAULT 0,
+    createdAt INTEGER NOT NULL
+);
+
+selectAllItems:
+SELECT *
+FROM cartItem;
+
+insertItem:
+INSERT INTO cartItem(id, name, category, quantity, isCompleted, createdAt)
+VALUES (?, ?, ?, ?, ?, ?);
+
+deleteItem:
+DELETE FROM cartItem
+WHERE id = ?;
+
+updateItemCompletion:
+UPDATE cartItem
+SET isCompleted = ?
+WHERE id = ?;
+
+CREATE TABLE locationIntent (
+    category TEXT NOT NULL PRIMARY KEY,
+    radius REAL NOT NULL,
+    isActive INTEGER AS Boolean NOT NULL DEFAULT 1
+);
+
+selectAllIntents:
+SELECT *
+FROM locationIntent;
+
+upsertIntent:
+INSERT OR REPLACE INTO locationIntent(category, radius, isActive)
+VALUES (?, ?, ?);
+
+deleteIntent:
+DELETE FROM locationIntent
+WHERE category = ?;

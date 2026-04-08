@@ -1,17 +1,68 @@
-# Obsidian
+# --- Project Specific ---
 .obsidian/
 /docs/.obsidian/
+.agent/
 
-# Gradle
-.gradle
+# --- Gradle & Build ---
+.gradle/
 build/
+**/build/
 !gradle/wrapper/gradle-wrapper.jar
-!**/src/main/**/build/
 
-# IDE
+# --- Kotlin/KMP & Android ---
+*.jks
+*.keystore
+*.bin
+*.apk
+*.ap_
+*.aab
+*.dex
+.cxx/
+captures/
+local.properties
+google-services.json
+.externalNativeBuild/
+.navigation/
+
+# --- iOS/macOS ---
+.DS_Store
+*.swp
+*.lock
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+xcuserdata/
+DerivedData/
+*.xccheckout
+*.moved-aside
+*.xcuserstate
+*.ext/
+# If using CocoaPods
+# Pods/
+# Podfile.lock
+
+# --- Secrets & Environment ---
+.env
+*.env.[a-zA-Z]*
+!.env.example
+secrets.xml
+*.pem
+*.key
+
+# --- IDEs ---
+# IntelliJ
 .idea/
 *.iml
-local.properties
+*.iws
+out/
+# VS Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
 
-# Mac
-.DS_Store
+# --- OS Specific ---
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/

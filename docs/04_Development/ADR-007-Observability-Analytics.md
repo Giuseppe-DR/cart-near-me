@@ -16,6 +16,7 @@ We are adopting a segregated "Analytics & Observability" architecture utilizing 
 
 1. **Frontend Telemetry (PostHog)**: 
    - We will utilize PostHog's Free Cloud Tier with an override option for users to self-host.
+   - We will explicitly configure PostHog with a locally generated **Persistent Anonymous Instance ID** on first install to track User Retention while avoiding PII collection.
    - We will implement a `PrivacyAnalyticsClient` interface mapping exact `track()` events.
    - **Constraint**: The middleware will scrub ALL keys matching generic location regexes (`lat`, `lng`, etc.) before the HTTPS payload is sent.
    - **Compliance**: We classify this under legitimate operation interest. We will forgo an explicit in-app opt-in modal and rely on App Store / Play Store "Data Safety" labels ("Analytics - Not linked to User").

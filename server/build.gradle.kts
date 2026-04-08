@@ -17,6 +17,12 @@ dependencies {
     implementation(libs.ktor.server.content.negotiation)
     implementation(libs.ktor.serialization.kotlinx.json)
     
+    // Observability & Logging
+    implementation(libs.ktor.server.call.logging)
+    implementation(libs.ktor.server.metrics.micrometer)
+    implementation(libs.micrometer.registry.prometheus)
+    implementation(libs.logback.classic)
+    
     implementation(libs.koin.ktor)
     implementation(libs.sqldelight.driver.jvm)
 }

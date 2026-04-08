@@ -1,0 +1,19 @@
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!-- 
+              PII SCRUBBING: The %replace function masks decimal numbers 
+              with 4 or more decimal places (typical GPS precision) 
+              with [REDACTED_COORD] to adhere to Module C Privacy mandate.
+            -->
+            <pattern>%d{YYYY-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %replace(%msg){'[-+]?[0-9]*\.[0-9]{4,}', '[REDACTED_COORD]'}%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="trace">
+        <appender-ref ref="STDOUT" />
+    </root>
+
+    <logger name="io.netty" level="INFO"/>
+    <logger name="org.eclipse.jetty" level="INFO"/>
+</configuration>

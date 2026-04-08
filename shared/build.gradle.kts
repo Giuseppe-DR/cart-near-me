@@ -6,13 +6,14 @@ plugins {
 }
 
 kotlin {
+    jvmToolchain(17)
     androidTarget {
-        compilations.all {
-            kotlinOptions {
-                jvmTarget = "17"
-            }
+        compilerOptions {
+            jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
         }
     }
+
+    jvm()
     
     listOf(
         iosX64(),
@@ -36,6 +37,10 @@ kotlin {
             implementation(libs.kotlinx.coroutines.core)
             implementation(libs.kotlinx.serialization.json)
         }
+        
+        jvmMain.dependencies {
+            implementation(libs.sqldelight.driver.jvm)
+        }
     }
 }
 
@@ -54,7 +59,7 @@ android {
 sqldelight {
     databases {
         create("CartDatabase") {
-            packageName.set("com.cartnearme.shared.database")
+            packageName.set("com.cartnearme.db")
         }
     }
 }

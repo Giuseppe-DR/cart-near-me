@@ -1,7 +1,14 @@
 plugins {
     kotlin("jvm")
+    id("application")
     alias(libs.plugins.ktor)
     alias(libs.plugins.kotlin.serialization)
+}
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))
+    }
 }
 
 application {
@@ -27,8 +34,8 @@ dependencies {
     implementation(libs.sqldelight.driver.jvm)
 }
 
-tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-    kotlinOptions {
-        jvmTarget = "17"
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+    compilerOptions {
+        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
     }
 }

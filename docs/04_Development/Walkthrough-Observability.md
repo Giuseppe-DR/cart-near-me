@@ -25,8 +25,8 @@ The backend and deployment metrics instrumentation detailed in Phase 1.6 and 1.7
 
 1. **Start the Backend Layer**:
    Since the Gradle wrapper isn't initialized yet, you can run from your IDE by right-clicking the `main` function in `Application.kt` and selecting run, or run `gradle :server:run` locally.
-   - The backend will listen on `0.0.0.0:8080`.
-   - You can visit `http://localhost:8080/metrics` to view the raw Prometheus text export.
+   - The backend will listen on `0.0.0.0:8085`.
+   - You can visit `http://localhost:8085/metrics` to view the raw Prometheus text export.
 
 2. **Start the Observability Stack**:
    Open a terminal in the `deploy` folder and run:

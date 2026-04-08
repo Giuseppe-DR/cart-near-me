@@ -3,7 +3,7 @@ CREATE TABLE cartItem (
     name TEXT NOT NULL,
     category TEXT NOT NULL,
     quantity TEXT,
-    isCompleted INTEGER AS Boolean NOT NULL DEFAULT 0,
+    isCompleted INTEGER AS kotlin.Boolean NOT NULL DEFAULT 0,
     createdAt INTEGER NOT NULL
 );
 
@@ -27,7 +27,7 @@ WHERE id = ?;
 CREATE TABLE locationIntent (
     category TEXT NOT NULL PRIMARY KEY,
     radius REAL NOT NULL,
-    isActive INTEGER AS Boolean NOT NULL DEFAULT 1
+    isActive INTEGER AS kotlin.Boolean NOT NULL DEFAULT 1
 );
 
 selectAllIntents:

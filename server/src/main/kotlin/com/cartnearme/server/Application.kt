@@ -10,13 +10,23 @@ import io.ktor.server.plugins.calllogging.*
 import io.micrometer.prometheus.PrometheusConfig
 import io.micrometer.prometheus.PrometheusMeterRegistry
 import org.slf4j.event.Level
+import org.koin.ktor.plugin.Koin
+import org.koin.dsl.module
+import com.cartnearme.di.commonModule
+import com.cartnearme.data.DatabaseDriverFactory
 
 fun main() {
-    embeddedServer(CIO, port = 8080, host = "0.0.0.0", module = Application::module)
+    embeddedServer(CIO, port = 8085, host = "0.0.0.0", module = Application::module)
         .start(wait = true)
 }
 
 fun Application.module() {
+    install(Koin) {
+        modules(commonModule, module {
+            single { DatabaseDriverFactory() }
+        })
+    }
+
     val appMicrometerRegistry = PrometheusMeterRegistry(PrometheusConfig.DEFAULT)
 
     install(MicrometerMetrics) {

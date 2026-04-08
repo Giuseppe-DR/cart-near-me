@@ -1,5 +1,5 @@
 [versions]
-kotlin = "2.1.0"
+kotlin = "2.3.0"
 compose-multiplatform = "1.7.0"
 ktor = "3.4.1"
 koin = "4.0.0"
@@ -55,6 +55,7 @@ kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", versi
 
 # Compose Multiplatform
 compose-multiplatform = { id = "org.jetbrains.compose", version.ref = "compose-multiplatform" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 
 # Backend & Persistence
 ktor = { id = "io.ktor.plugin", version.ref = "ktor" }

@@ -55,17 +55,24 @@ install(Koin) {
 
 ## 5. Running & Testing
 
+### Environment Variables
+The server expects the following environment variables for full functionality:
+- `SENTRY_DSN`: The Data Source Name for Sentry. If missing, the server defaults to a placeholder and logs a warning.
+
 ### How to Run
 Use the Gradle wrapper to ensure the correct version is utilized:
 ```bash
-./gradlew :server:run
+SENTRY_DSN="your_dsn" ./gradlew :server:run
 ```
 
-### Metrics Validation
-The observability stack is ready for verification:
-1.  Start the backend (as shown above).
-2.  Visit `http://localhost:8085/metrics`.
-3.  Deploy the stack: `cd deploy && docker-compose up -d`.
+### Observability & Crash Reporting
+The backend includes a comprehensive observability stack:
+1.  **Metrics**: Visit `http://localhost:8085/metrics` for Prometheus data.
+2.  **Crash Reporting**: Sentry captures all unhandled exceptions via Ktor `StatusPages`.
+3.  **Log Integration**: Sentry automatically captures `WARN` and `ERROR` logs from Logback.
+
+### Local Observability Stack
+Deploy the stack: `cd deploy && docker-compose up -d`.
 
 ---
 

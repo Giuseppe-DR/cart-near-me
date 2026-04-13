@@ -10,8 +10,14 @@
         </encoder>
     </appender>
 
+    <appender name="SENTRY" class="io.sentry.logback.SentryAppender">
+        <minimumEventLevel>WARN</minimumEventLevel>
+        <minimumBreadcrumbLevel>INFO</minimumBreadcrumbLevel>
+    </appender>
+
     <root level="trace">
         <appender-ref ref="STDOUT" />
+        <appender-ref ref="SENTRY" />
     </root>
 
     <logger name="io.netty" level="INFO"/>

@@ -8,7 +8,7 @@ Our journey from a local ledger to a global, privacy-first assistance network.
 **Goal**: Establish the local-first architecture and baseline observability.
 - [x] **ADR-005**: SQLDelight Schema for Intents & CartItems.
 - [x] **ADR-006**: Koin 4.0 Dependency Injection Strategy.
-- [/] **ADR-007**: Privacy-First Observability & Analytics (Baseline).
+- [x] **ADR-007**: Privacy-First Observability & Analytics (Baseline).
 - [/] **UI Scaffolding**: Material 3 Bottom Navigation & Core Screen Layouts.
 - [ ] **Local Matching**: Basic circular geofence logic (Pre-Grid).
 

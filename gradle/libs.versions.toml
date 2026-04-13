@@ -9,6 +9,8 @@ coroutines = "1.8.0"
 agp = "8.7.0"
 micrometer = "1.12.4"
 logback = "1.5.3"
+sentry-kmp = "0.25.0"
+sentry-server = "8.38.0"
 
 [libraries]
 # Kotlinx
@@ -22,10 +24,14 @@ ktor-server-auth-jwt = { module = "io.ktor:ktor-server-auth-jwt", version.ref = 
 ktor-server-content-negotiation = { module = "io.ktor:ktor-server-content-negotiation", version.ref = "ktor" }
 ktor-server-metrics-micrometer = { module = "io.ktor:ktor-server-metrics-micrometer", version.ref = "ktor" }
 ktor-server-call-logging = { module = "io.ktor:ktor-server-call-logging", version.ref = "ktor" }
+ktor-server-status-pages = { module = "io.ktor:ktor-server-status-pages", version.ref = "ktor" }
 
 # Observability
 micrometer-registry-prometheus = { module = "io.micrometer:micrometer-registry-prometheus", version.ref = "micrometer" }
 logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
+sentry-kotlin-multiplatform = { module = "io.sentry:sentry-kotlin-multiplatform", version.ref = "sentry-kmp" }
+sentry-core = { module = "io.sentry:sentry", version.ref = "sentry-server" }
+sentry-logback = { module = "io.sentry:sentry-logback", version.ref = "sentry-server" }
 
 # Ktor Client (Shared KMP)
 ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }

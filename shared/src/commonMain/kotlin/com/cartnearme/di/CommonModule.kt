@@ -5,6 +5,8 @@ import com.cartnearme.db.CartDatabase
 import org.koin.core.context.startKoin
 import org.koin.dsl.KoinAppDeclaration
 import org.koin.dsl.module
+import com.cartnearme.crash.CrashReporter
+import com.cartnearme.crash.SentryCrashReporter
 
 val commonModule = module {
     // We expect the platform application (Android/iOS) to inject the DatabaseDriverFactory instance
@@ -12,6 +14,8 @@ val commonModule = module {
         val driverFactory = get<DatabaseDriverFactory>()
         CartDatabase(driverFactory.createDriver())
     }
+
+    single<CrashReporter> { SentryCrashReporter() }
 }
 
 fun initKoin(appDeclaration: KoinAppDeclaration = {}) = startKoin {

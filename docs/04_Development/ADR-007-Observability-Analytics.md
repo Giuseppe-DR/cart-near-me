@@ -12,7 +12,7 @@ To ensure future growth and stability of `Cart-Near-Me`, we need detailed metric
 We need an architecture that seamlessly balances insightful operations with cryptographic-level data hygiene. Moreover, out of consideration for future open-source adoption and deployment costs, the stack should prioritize free tiers, open-source compatibility, and self-hosting capabilities.
 
 ## Decision
-We are adopting a segregated "Analytics & Observability" architecture utilizing a combination of PostHog, Micrometer, and Grafana Cloud Free Tier:
+We are adopting a segregated "Analytics & Observability" architecture utilizing a combination of PostHog, Micrometer, Grafana Cloud, and **Sentry**:
 
 1. **Frontend Telemetry (PostHog)**: 
    - We will utilize PostHog's Free Cloud Tier with an override option for users to self-host.
@@ -29,6 +29,11 @@ We are adopting a segregated "Analytics & Observability" architecture utilizing 
 3. **Backend Log Scrubbing**:
    - `SLF4J`/`Logback` interceptors will mask floating-point coordinate pairs `[REDACTED_COORD]` in all Mapped Diagnostic Contexts to prevent leaks during DB failures.
    - Postgres `log_statement` will avoid full value binding in logs to prevent geographic polygons from landing in plain text.
+
+4. **Crash Reporting (Sentry)**:
+   - We utilize Sentry for real-time error tracking across the Ktor backend and KMP shared module.
+   - **Privacy Guardrail**: Sentry is configured with a `beforeSend` hook that utilizes a regex filter (`'[-+]?[0-9]*\.[0-9]{4,}'`) to redact precise GPS coordinates from error messages and breadcrumbs before they leave the application.
+   - **Performance Footprint**: Sentry Performance Monitoring (Tracing) is explicitly disabled (`tracesSampleRate = 0.0`) to avoid telemetry redundancy with the existing Micrometer/Prometheus stack.
 
 ## Consequences
 - **Positive**: Complete peace of mind regarding PII. Even if our cloud provider or PostHog dashboard is compromised, the leaked dataset contains zero actionable geographic vectors.

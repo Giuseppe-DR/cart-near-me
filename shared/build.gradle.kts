@@ -36,6 +36,7 @@ kotlin {
             implementation(libs.ktor.serialization.kotlinx.json)
             implementation(libs.kotlinx.coroutines.core)
             implementation(libs.kotlinx.serialization.json)
+            implementation(libs.sentry.kotlin.multiplatform)
         }
         
         jvmMain.dependencies {

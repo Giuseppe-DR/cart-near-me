@@ -5,8 +5,8 @@ The backend and deployment metrics instrumentation detailed in Phase 1.6 and 1.7
 ## What Was Completed
 
 1. **Strategic Documentation**:
-   - Updated `ADR-007-Observability-Analytics.md` to solidify the adoption of the Persistent Instance ID for PostHog. This allows daily retention tracking while staying firmly within the boundaries of 'Legitimate Interest' without requiring PII.
-   - Checked off phases 1.6 and 1.7 in our roadmap `tasks.md`.
+    - Updated `ADR-007-Observability-Analytics.md` to solidify the adoption of the Persistent Instance ID for PostHog and **Sentry for Crash Reporting**.
+    - Checked off phases 1.6, 1.7, and **1.8** in our roadmap `tasks.md`.
 
 2. **Backend Engine Bootstrapping (`:server`)**:
    - The Ktor server module was formally started. Added the `Ktor` application plugins for `MicrometerMetrics` and `CallLogging` to the new `Application.kt` root.
@@ -36,4 +36,4 @@ The backend and deployment metrics instrumentation detailed in Phase 1.6 and 1.7
    - Then navigate to `http://localhost:3000` to log into Grafana (admin/admin). You can hook up Prometheus as a data source (`http://prometheus:9090`) and begin graphing the Ktor active connections and DB latency buckets.
 
 > [!TIP]
-> **Next Steps**: Our KMP foundation and observability architecture is complete. Whenever you are ready, we can tackle **Phase 1.8 (Crash Reporting)** or jump straight into **Phase 2 (The Spatial Engine PostGIS/OSM integration)**!
+> **Next Steps**: Our observability architecture, including metrics and crash reporting, is complete! We can now proceed to **Phase 2: The Spatial Engine (PostGIS/OSM integration)** or tackle any UI/UX tasks.

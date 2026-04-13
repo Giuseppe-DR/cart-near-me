@@ -14,7 +14,7 @@
 - [x] **1.5 DI Foundation**: Basic Koin module setup for all three platforms. (2026-04-04)
 - [x] **1.6 Frontend Telemetry**: Implement `PrivacyAnalyticsClient` and PostHog integration with strict PII scrubbing.
 - [x] **1.7 Backend Observability**: Setup Ktor Micrometer/Prometheus with Logback PII masking.
-- [ ] **1.8 Crash Reporting**: Setup Sentry for both the KMP shared module and the Ktor server.
+- [x] **1.8 Crash Reporting**: Setup Sentry for both the KMP shared module and the Ktor server.
 - [ ] **1.9 Sentry Config**: Update placeholders with actual Sentry DSNs for production.
 
 ## 🌐 Phase 2: The Spatial Engine (Backend)

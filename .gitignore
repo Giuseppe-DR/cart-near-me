@@ -23,6 +23,8 @@ local.properties
 google-services.json
 .externalNativeBuild/
 .navigation/
+.kotlin/
+*.kotlin.errors
 
 # --- iOS/macOS ---
 .DS_Store
